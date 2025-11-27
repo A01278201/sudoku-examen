@@ -33,7 +33,6 @@ fun SudokuScreen(viewModel: SudokuViewModel = hiltViewModel()) {
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
 
-            // Título
             Text(
                 text = "Sudoku Examen",
                 style = MaterialTheme.typography.headlineMedium,
@@ -42,7 +41,6 @@ fun SudokuScreen(viewModel: SudokuViewModel = hiltViewModel()) {
 
             Spacer(Modifier.height(16.dp))
 
-            // Selectores de tamaño y dificultad
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceEvenly
@@ -102,7 +100,6 @@ fun SudokuScreen(viewModel: SudokuViewModel = hiltViewModel()) {
 
             Spacer(Modifier.height(16.dp))
 
-            // Botones principales (una sola fila)
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceEvenly
@@ -129,7 +126,6 @@ fun SudokuScreen(viewModel: SudokuViewModel = hiltViewModel()) {
 
             Spacer(Modifier.height(8.dp))
 
-            // Botón Cargar en una fila aparte, centrado
             OutlinedButton(
                 onClick = { viewModel.loadSavedGame() },
                 modifier = Modifier.align(Alignment.CenterHorizontally)
@@ -160,10 +156,7 @@ fun SudokuScreen(viewModel: SudokuViewModel = hiltViewModel()) {
 }
 
 
-/**
- * Tablero Sudoku N x N (4x4 o 9x9).
- * Ajustamos tamaño y separación para que el 9x9 quepa completo.
- */
+
 @Composable
 private fun SudokuBoard(
     state: SudokuUiState,
@@ -173,7 +166,6 @@ private fun SudokuBoard(
     val current = state.currentBoard
     val n = puzzle.boardSize.totalSize
 
-    // Tamaño de celda y espacio según el tamaño del tablero
     val cellSize: Dp = if (n <= 4) 64.dp else 32.dp
     val spacing: Dp = if (n <= 4) 6.dp else 2.dp
 
@@ -245,9 +237,7 @@ private fun SudokuBoard(
     }
 }
 
-/**
- * Selector genérico (tamaño / dificultad)
- */
+
 @Composable
 private fun <T> DropdownSelector(
     label: String,
